@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Payment from './payment'
 var price = 0
 export default class checkout extends React.Component {
     state = {
-        cart: this.props.cart
+        cart: this.props.cart,
+        clicked:false
     }
     remove = (id) => {
         // console.log('checkout remove')
@@ -30,7 +32,13 @@ export default class checkout extends React.Component {
     browse = (item) => {
         window.location.href = (`https://www.google.com/search?q=${item}`)
     }
+    
     render() {
+        if(this.state.clicked==true){
+            return <Payment amount={price}/>
+        }
+        
+        else{
         return (
             <div className={"container"}>
                 <div className="row mt-5">
@@ -64,12 +72,13 @@ export default class checkout extends React.Component {
                             Total- {price}
                         </div>
                         <div style={{paddingTop:5,paddingLeft:50}}>
-                        <button className='btn-primary' style={{height:'40px',width:'100px',borderRadius:5}}>Buy Now</button>
+                        <button onClick={()=>{this.setState({clicked:true})}} className='btn-primary' style={{height:'40px',width:'100px',borderRadius:5}}>Buy Now</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         )
+                    }
     }
 }
