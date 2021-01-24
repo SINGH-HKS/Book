@@ -40,7 +40,7 @@ export default class checkout extends React.Component {
                             console.log('price', price)
                             return (<div className="card mt-2" style={{ paddingTop: '10px' }}>
                                 <div className='card-header'>Book ID -{item.bookID} | ISBN -{item.isbn}</div>
-                                <div className="card-body bg-info" style={{ height: '1px' }}>
+                                <div className="card-body bg-info">
                                     <h4 className="card-title">{item.title}</h4>
                                     <div ><div>Authors- {item.authors}
                                     </div>
