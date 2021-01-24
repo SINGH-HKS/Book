@@ -53,7 +53,7 @@ export default class checkout extends React.Component {
                                 <div className='card-footer'>
                                     <div classname='row'>
                                         <div >Price- ₹{item.price}</div>
-                                        <button onClick={() => { this.remove(item) }}><div>REMOVE</div></button>
+                                        <button onClick={() => { this.remove(item) }}><div> REMOVE </div></button>
                                     </div></div>
                             </div>)
                         })}
