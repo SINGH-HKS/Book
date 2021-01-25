@@ -66,9 +66,9 @@ export default class checkout extends React.Component {
 
         else {
             return (
-                <div className={"container block-example border border-dar" } style={{paddingBottom:'60px',border:'2px dot red'}}>
-                    <div className="mt-5 ml-5 mr-5 mb-5 block-example border border-danger">
-                        <div className={"col-lg-6 col-12 block-example border border-warning"} >
+                <div className={"container block-example " } style={{paddingBottom:'60px',border:'2px dot red'}}>
+                    <div className="mt-5 ml-5 mr-5 mb-5 block-example ">
+                        <div className={"col-lg-6 col-12 block-example "} >
                             {this.state.cart.map(item => {
                                 price += item.price
                                 console.log('price', price)
