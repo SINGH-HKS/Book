@@ -44,7 +44,7 @@ export default class checkout extends React.Component {
             return (
                 <BrowserRouter>
                     <div>
-                        {console.log('inside checkout')}
+                       
                         <div className='jumbotron'>
                             {/* <div className='row'> */}
                             {/* <div className='col-mt-5 col-ml-20 '> */}
@@ -71,7 +71,7 @@ export default class checkout extends React.Component {
                         <div className={"col-lg-6 col-12 "} >
                             {this.state.cart.map(item => {
                                 price += item.price
-                                console.log('price', price)
+                                
                                 return (<div className="card mt-2" >
                                     <div className='card-header'>Book ID -{item.bookID} | ISBN -{item.isbn}</div>
                                     <div className="card-body bg-info">

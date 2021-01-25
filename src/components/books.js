@@ -53,12 +53,12 @@ class books extends Component {
 
         })
         if (added == true) {
-            console.log('true')
+            
             return
         }
         else {
             item.push(id)
-            console.log('item added', item)
+            
             this.props.addcart(this.state.cart)
             return this.setState({ cart: item })
 
