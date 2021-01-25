@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactStars from "react-rating-stars-component";
 import "../App.css";
 import axios from 'axios'
-
+import data from './data'
 
 const url = "https://s3-ap-southeast-1.amazonaws.com/he-public-data/books8f8fe52.json"
 class books extends Component {
@@ -28,18 +28,18 @@ class books extends Component {
     }
 
     componentDidMount() {
-
-        axios.get(url)
-            .then(response => {
-                this.setState({ books: response.data })
-            }).catch(error => {
-                if (error.response) {
-                    this.setState({ errorMessage: error.response.data.message })
-                }
-                else {
-                    this.setState({ errorMessage: "Server error" })
-                }
-            })
+        this.setState({books:data})
+        // axios.get(url)
+        //     .then(response => {
+        //         this.setState({ books: response.data })
+        //     }).catch(error => {
+        //         if (error.response) {
+        //             this.setState({ errorMessage: error.response.data.message })
+        //         }
+        //         else {
+        //             this.setState({ errorMessage: "Server error" })
+        //         }
+        //     })
     }
 
     addtocart = (id) => {

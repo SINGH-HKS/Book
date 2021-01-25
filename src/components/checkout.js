@@ -33,7 +33,7 @@ export default class checkout extends React.Component {
         price = 0
     }
     browse = (item) => {
-        window.open(`https://www.google.com/search?q=book${item}`)
+        window.open(`https://www.google.com/search?q=book+${item}`)
     }
 
     render() {
@@ -67,8 +67,8 @@ export default class checkout extends React.Component {
         else {
             return (
                 <div className={"container block-example " } style={{paddingBottom:'60px',border:'2px dot red'}}>
-                    <div className="mt-5 ml-5 mr-5 mb-5 block-example ">
-                        <div className={"col-lg-6 col-12 block-example "} >
+                    <div className="mt-5 ml-5 mr-5 mb-5  ">
+                        <div className={"col-lg-6 col-12 "} >
                             {this.state.cart.map(item => {
                                 price += item.price
                                 console.log('price', price)
@@ -93,12 +93,12 @@ export default class checkout extends React.Component {
                             })}
 
                         </div>
-                        <div className='' style={{ paddingLeft: '80%' }} >
-                            <div className='' style={{ padding: 5, border: '2px solid red', borderRadius: 10, fontSize: '40px' }}>
-                                Total- {price}
+                        <div className='' style={{ position:'fixed',right:'20%',top:'50%' }} >
+                            <div className='col-12 display-4' style={{ padding: 5,  borderRadius: 10 }}>
+                                Total- ₹{price}
                             </div>
-                            <div style={{ paddingTop: 5, paddingLeft: 50 }}>
-                                <button onClick={() => { this.setState({ clicked: true }) }} className='btn-primary' style={{ height: '40px', width: '100px', borderRadius: 5 }}>Buy Now</button>
+                            <div className='col-12 ' style={{ paddingTop: 5 }}>
+                                <button onClick={() => { this.setState({ clicked: true }) }} className='btn-primary btn-block' style={{ borderRadius: 5,fontSize:'30px' }}>Buy Now</button>
                             </div>
                         </div>
                     </div>

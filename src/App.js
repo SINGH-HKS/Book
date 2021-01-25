@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import Books from "./components/books"
 import Checkout from './components/checkout';
-import { BrowserRouter,Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter,Route, Switch, Redirect,Link } from "react-router-dom";
 import Payment from './components/payment'
 var style = {
   backgroundColor: "#728a89",
@@ -14,6 +14,7 @@ var style = {
   bottom: "0",
   height: "60px",
   width: "100%",
+  count:''
 }
 
 var phantom = {
@@ -37,7 +38,8 @@ handlechange=(event)=>{
   this.setState({searchText:event.target.value})
 }
   addcart=(items)=>{
-    this.setState({cart:items})
+    var count=items.length
+    this.setState({cart:items,count:count})
     
   }
 
@@ -62,8 +64,8 @@ handlechange=(event)=>{
         <Redirect to="/books/checkout" ></Redirect>:<div>
           <Redirect to='/books'></Redirect><nav className="navbar navbar-light" style={{background:'#728a89'}}>
         <a className="navbar-brand" href="#">
-          <img src="https://banner2.cleanpng.com/20190424/gal/kisspng-clip-art-book-discussion-club-portable-network-gra-cropped-2248-2-png-early-modern-printing-5cc003e0d150f2.7431060115560877768574.jpg" width="30" height="30" className="d-inline-block align-top" alt=""/>
-            Book Repo
+          <img src="https://cdn0.iconfinder.com/data/icons/learning-icons-rounded/110/Books-512.png" width="30" height="30" className="d-inline-block align-top" alt=""/>
+              Book Repo
        </a>
        <ul className="navbar-nav mr-auto">
        <select nameName="sort" onChange={this.change}>
@@ -76,7 +78,15 @@ handlechange=(event)=>{
     <input className="form-control mr-sm-2" type="search" value={this.state.searchText} placeholder="Search" aria-label="Search" onChange={this.handlechange}/>
     
     </form>
-    <button onClick={()=>{this.setState({cartclicked:true})}} ><img src='https://images.all-free-download.com/images/graphiclarge/green_shopping_cart_icon_vector_280755.jpg' width="50" height='50'/></button>
+    {this.state.count!=0?<button  style={{borderRadius:'100px',background:'#728a89',color:'white'}} onClick={()=>{this.setState({cartclicked:true})}} >
+      <img src='https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Cart-512.png' width="40" height='40' className="d-inline-block align-top" />
+      {this.state.count}
+      </button>:<button style={{borderRadius:'100px',background:'#728a89'}} onClick={()=>{this.setState({cartclicked:true})}} >
+      <img src='https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Cart-512.png' width="40" height='40' className="d-inline-block align-top" />
+      
+      </button>}
+    
+          
       </nav>
       </div>}
         
@@ -90,14 +100,15 @@ handlechange=(event)=>{
           <Route path="/books" render={()=><Books addcart={this.addcart} sortType={this.state.sortType} searchText={this.state.searchText}/>}/>
           {/* Add routes to navigate to appropriate components here */}
         </Switch>
-        </BrowserRouter>
+        
         <div>
             <div style={phantom} />
             <div style={style}>
-            
-            © Copyright @Hitesh
+            © Copyright @Hitesh { }
+            <a className='text-success' href='https://www.linkedin.com/in/hitesh-kumar-singh/' target='_blank'><img src='https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_14-linkedin-512.png' height='25' width='25'/></a>
             </div>
         </div>
+        </BrowserRouter>
         </div>
     )
   }
