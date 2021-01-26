@@ -58,8 +58,6 @@ handlechange=(event)=>{
     return (
       <div>
         <BrowserRouter>
-        
-        {console.log('FALSE')}
         {this.state.cartclicked==true&& this.state.cart?
         <Redirect to="/books/checkout" ></Redirect>:<div>
           <Redirect to='/books'></Redirect><nav className="navbar navbar-light" style={{background:'#728a89'}}>
